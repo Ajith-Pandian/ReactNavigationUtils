@@ -1,0 +1,41 @@
+{
+  "name": "react-navigation-utils",
+  "version": "0.0.1",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0",
+    "react": "16.0.0",
+    "react-native": "0.51.0",
+    "react-navigation": "^1.0.0-beta.22"
+  },
+  "devDependencies": {
+    "babel-jest": "22.0.4",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.0.4",
+    "react-test-renderer": "16.0.0"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "description": "Utility functions for react-navigation",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ajith-Pandian/ReactNavigationUtils.git"
+  },
+  "keywords": [
+    "react-navigation",
+    "navigation",
+    "react-native",
+    "utils"
+  ],
+  "author": "Ajith Pandian",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Ajith-Pandian/ReactNavigationUtils/issues"
+  },
+  "homepage": "https://github.com/Ajith-Pandian/ReactNavigationUtils#readme"
+}
