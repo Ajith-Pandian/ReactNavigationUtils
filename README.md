@@ -12,7 +12,7 @@ Utility functions for `react-navigation` library
 
 ### Integration Guide:
 
-** 1. withHeader(_Screen_, _renderHeader_)** : renders custom header
+**1. withHeader(_Screen_, _renderHeader_)** : renders custom header
 
 | Params | Type | Description |
 |:-----: |:----:|:-----------------|
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   sHeaderStyle: { margin: 10 }
 });
 ```
-** 2. resetNavigationToFirst(_routeName_, _navigationProp_)** : resets the stack to start with passed route
+**2. resetNavigationToFirst(_routeName_, _navigationProp_)** : resets the stack to start with passed route
 
 | Params | Type | Description |
 |:-----: |:----:|:-----------------|
