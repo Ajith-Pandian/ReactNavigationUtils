@@ -10,17 +10,14 @@ Utility functions for `react-navigation` library
 
 `npm install --save react-navigation-utils`
 
-### Docs:
-
-| Function | Params | Type | Description |
-| :------- |:-----: |:----:|:----------- |
-| 1.`withHeader(Screen,renderHeader)`- renders custom header| _`Screen`_| Component | The screen to have header |
-|| _`renderHeader(props)`_| Callback | Callback that accepts `props` returns `header`<br> `props` - `{navigation: {…}, screenProps: {…}, navigationOptions: {…}}` <br> `header` - Valid ReactComponent|
-| 2.`resetNavigationToFirst(routeName,navigationProp)`- resets the stack to start with passed route| _`routeName`_| String | The route to be reset as first |
-|| _`navigationProp`_| Navigation Property | Navigation property obtained from Navigator||
 ### Integration Guide:
 
-##### 1.withHeader(_Screen_, _renderHeader_) :
+** 1. withHeader(_Screen_, _renderHeader_)** : renders custom header
+
+| Params | Type | Description |
+|:-----: |:----:|:-----------------|
+| _`Screen`_| Component | The screen to have header |
+| _`renderHeader(props)`_| Callback | Callback that accepts `props` returns `header`.<br>  `props` : `{navigation: {…}, screenProps: {…}, navigationOptions: {…}}` <br>  `header` : Valid ReactComponent|
 
 ```js
 import React, { Component } from "react";
@@ -79,8 +76,12 @@ const styles = StyleSheet.create({
   sHeaderStyle: { margin: 10 }
 });
 ```
-##### 2.resetNavigationToFirst(_routeName_, _navigationProp_) :
+** 2. resetNavigationToFirst(_routeName_, _navigationProp_)** : resets the stack to start with passed route
 
+| Params | Type | Description |
+|:-----: |:----:|:-----------------|
+| _`routeName`_| String | The route to be reset as first |
+| _`navigationProp`_| Navigation Property | Navigation property obtained from Navigator|
 ```js
 import React, { Component } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
