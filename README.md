@@ -10,27 +10,35 @@ Utility functions for `react-navigation`
 
 `npm install --save react-navigation-utils`
 
-### Integrate into your app:
+### Docs:
 
-#### 1.withHeader ( Screen, renderHeader ) :
+|Function| Params | Type | Description |
+| --- | ---- |:--------------:| ----------- |
+| 1.`withHeader(Screen,renderHeader)`- used to render custom header| _`Screen`_| Component | The screen to have header |
+|| _`renderHeader(props)`_| Callback | Callback that accepts `props` returns `header`<br> `props` - `{navigation: {…}, screenProps: {…}, navigationOptions: {…}}` <br> `header` - Valid ReactComponent||
+### Integration Guide:
+
+##### 1.withHeader(_Screen_, _renderHeader_) :
 
 ```js
 import React, { Component } from "react";
-import { StyleSheet, Text, View, TextInput } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { StackNavigator } from "react-navigation";
 import { withHeader } from "react-navigation-utils";
 
-const FirstScreen = () => (
+const FirstScreen = props => (
   <View style={styles.sContainer}>
     <Text>This is FirstScreen</Text>
-    <TouchableOpacity onPress={() => props.navigation.navigate("SecondScreen")}>
+    <TouchableOpacity
+      onPress={() => props.navigation.navigate("SecondScreen", { data: "Hi" })}
+    >
       <Text>Open SecondScreen</Text>
     </TouchableOpacity>
   </View>
 );
 
 let FirstScreenWithHeader = withHeader(FirstScreen, () => (
-  <Text>This is Custom Header 1</Text>
+  <Text style={styles.sHeaderStyle}>This is Custom Header 1</Text>
 ));
 
 class SecondScreen extends Component {
@@ -43,9 +51,14 @@ class SecondScreen extends Component {
   }
 }
 
-let SecondScreenWithHeader = withHeader(SecondScreen, () => (
-  <Text>This is Custom Header 2</Text>
-));
+let SecondScreenWithHeader = withHeader(SecondScreen, props => {
+  let data = props.navigation.state.params.data;
+  return (
+    <Text style={styles.sHeaderStyle}>
+      This is Custom Header 2 with data {data}
+    </Text>
+  );
+});
 
 const App = StackNavigator({
   FirstScreen: { screen: FirstScreenWithHeader },
@@ -60,6 +73,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#F5FCFF"
-  }
+  },
+  sHeaderStyle: { margin: 10 }
 });
 ```
