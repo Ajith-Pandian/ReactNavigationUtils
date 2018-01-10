@@ -30,7 +30,15 @@
     "react-navigation",
     "navigation",
     "react-native",
-    "utils"
+    "utils",
+    "react-navigation-utils",
+    "custom-header",
+    "react-native-custom-header",
+    "navigation-header",
+    "react-native-custom-header",
+    "navigation-custom-header",
+    "react-navigation-custom-header",
+    "react-navigation-utility"
   ],
   "author": "Ajith Pandian",
   "license": "MIT",
