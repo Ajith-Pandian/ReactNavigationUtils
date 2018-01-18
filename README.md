@@ -17,7 +17,7 @@ or
 
 ### Integration Guide:
 
-**1. withHeader(_Screen_, _renderHeader_)** : renders custom header
+**1. withHeader(_Screen_, _renderHeader_)** : renders custom header for `StackNavigator`
 
 |         Params          |   Type    | Description                                                                                                                                                      |
 | :---------------------: | :-------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-**2. withHeaderAndClassProps(_Screen_, _renderHeader_)** : renders custom header
+**2. withHeaderAndClassProps(_Screen_, _renderHeader_)** : renders custom header for `StackNavigator`
 
 |         Params          |   Type    | Description                                                                                                                                                                                                                                                                                                                                                          |
 | :---------------------: | :-------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -146,13 +146,11 @@ class SecondScreen extends Component {
 }
 
 let SecondWithHeader = withHeaderAndClassProps(SecondScreen, props => {
-
   /* props.navigation.state.params.classProps will have all props of SecondScreen */
   /* getNestedObject(props,path)- helper method to extract nested classProps object if path is valid */
   /* CLASS_PROPS is a type for  props.navigation.state.params.classProps */
   let classProps = getNestedObject(props, CLASS_PROPS);
   /* classProps will contain all props passed to SecondScreen */
-
 
   /* props.navigation.state.params.classMethods will have all binded methods of SecondScreen */
   /* getNestedObject(props,path)- helper method to extract nested classProps object if path is valid */
@@ -201,7 +199,77 @@ const styles = StyleSheet.create({
 });
 ```
 
-**3. resetNavigationToFirst(_routeName_, _navigationProp_)** : resets the stack to start with passed route
+**3. LazyLoading ** : To implement LazyLoading on `TabNavigator` following steps should be followed
+* **withLazyLoading(Screen)** : implements lazy loading on `TabNavigator` screen
+
+|       Params        |   Type    | Description                     |
+| :-----------------: | :-------: | :------------------------------ |
+| _`ScreenComponent`_ | Component | The component to be lazy loaded |
+
+* **handleLazyLoading(navigation,props)** : handles `tabBarOnPress` events to enable LazyLoading
+
+|     Params     |      Type      | Description                                                           |
+| :------------: | :------------: | :-------------------------------------------------------------------- |
+| _`navigation`_ | NavigationProp | Navigation property obtained from _Navigator_ via `navigationOptions` |
+|   _`props`_    |     Props      | Props obtained from `tabBarOnPress` on _Navigator_                    |
+
+**NOTE**:
+ * `firstRoute` (the first screen on TabNavigator) or `initialRoute` should not have lazy loading. They should be rendered normally.
+
+* If first screen has `LazyLoading`, nothing will be rendered.
+
+```js
+import React, { Component } from "react";
+import { View, Text, StyleSheet } from "react-native";
+import { TabNavigator } from "react-navigation";
+import { withLazyLoading, handleLazyLoading } from "react-navigation-utils";
+
+const TabScreen1 = () => {
+  /* uncomment below line to check lazy loading */
+  // console.log("rendered 1");
+  return (
+    <View style={styles.sContainer}>
+      <Text>Im first tab</Text>
+    </View>
+  );
+};
+
+const TabScreen2 = () => {
+  /* uncomment below line to check lazy loading */
+  // console.log("rendered 2");
+  return (
+    <View style={styles.sContainer}>
+      <Text>Im second tab</Text>
+    </View>
+  );
+};
+
+const LazyTabScreen2 = withLazyLoading(TabScreen2);
+
+const MyTabs = TabNavigator(
+  {
+    tab1: { screen: TabScreen1 }, /* No LazyLoad on 1st route */
+    tab2: { screen: LazyTabScreen2 }
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      tabBarOnPress: props => handleLazyLoading(navigation, props)
+    })
+  }
+);
+
+export default MyTabs;
+
+const styles = StyleSheet.create({
+  sContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  }
+});
+```
+
+**4. resetNavigationToFirst(_routeName_, _navigationProp_)** : resets the stack to start with passed route
 
 |       Params       |        Type         | Description                                 |
 | :----------------: | :-----------------: | :------------------------------------------ |

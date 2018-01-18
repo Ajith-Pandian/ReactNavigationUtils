@@ -1,6 +1,6 @@
 {
   "name": "react-navigation-utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest"
@@ -38,7 +38,9 @@
     "react-native-custom-header",
     "navigation-custom-header",
     "react-navigation-custom-header",
-    "react-navigation-utility"
+    "react-navigation-utility",
+    "react-navigation-lazy",
+    "react-navigation-lazy-loading"
   ],
   "author": "Ajith Pandian",
   "license": "MIT",

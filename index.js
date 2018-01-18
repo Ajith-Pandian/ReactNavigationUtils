@@ -106,3 +106,35 @@ export function getNestedObject(obj, type, printErr) {
     return null;
   }
 }
+
+//Lazy loading for TabNavigator
+
+export const withLazyLoading = ScreenComponent => {
+  return class extends Component {
+    state = { visited: false };
+    componentWillReceiveProps(nextProps) {
+      let { visited } = this.state;
+      if (!visited)
+        try {
+          let navigationState = nextProps.navigation.state;
+          if (navigationState.params.focused === navigationState.key)
+            this.setState({ visited: true });
+        } catch (err) {
+          console.log(err);
+        }
+    }
+    shouldComponentUpdate() {
+      return !this.state.visited;
+    }
+    render() {
+      let { visited } = this.state;
+      return visited ? <ScreenComponent /> : null;
+    }
+  };
+};
+
+export const handleLazyLoading = (navigation, props) => {
+  let { scene, jumpToIndex } = props;
+  navigation.setParams({ focused: scene.route.key });
+  jumpToIndex(scene.index);
+};
