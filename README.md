@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-**3. LazyLoading ** : To implement LazyLoading on `TabNavigator` following steps should be followed
+**3. LazyLoading** : To implement LazyLoading on `TabNavigator` following steps should be followed
 * **withLazyLoading(Screen)** : implements lazy loading on `TabNavigator` screen
 
 |       Params        |   Type    | Description                     |

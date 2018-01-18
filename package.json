@@ -1,24 +1,11 @@
 {
   "name": "react-navigation-utils",
   "version": "0.0.8",
-  "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
-  },
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "16.0.0",
-    "react-native": "0.51.0",
-    "react-navigation": "^1.0.0-beta.22"
-  },
-  "devDependencies": {
-    "babel-jest": "22.0.4",
-    "babel-preset-react-native": "4.0.0",
-    "jest": "22.0.4",
-    "react-test-renderer": "16.0.0"
-  },
-  "jest": {
-    "preset": "react-native"
+    "react-native": "0.52.0",
+    "react-navigation": "^1.0.0-beta.27"
   },
   "description": "Utility functions for react-navigation",
   "main": "index.js",
