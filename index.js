@@ -128,7 +128,7 @@ export const withLazyLoading = ScreenComponent => {
     }
     render() {
       let { visited } = this.state;
-      return visited ? <ScreenComponent /> : null;
+      return visited ? <ScreenComponent {...this.props} /> : null;
     }
   };
 };

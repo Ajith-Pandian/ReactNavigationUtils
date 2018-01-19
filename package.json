@@ -1,6 +1,6 @@
 {
   "name": "react-navigation-utils",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "dependencies": {
     "prop-types": "^15.6.0",
     "react": "16.0.0",
