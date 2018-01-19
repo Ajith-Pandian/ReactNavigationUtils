@@ -154,9 +154,9 @@ let SecondWithHeader = withHeaderAndClassProps(SecondScreen, props => {
 
   /* props.navigation.state.params.classMethods will have all binded methods of SecondScreen */
   /* getNestedObject(props,path)- helper method to extract nested classProps object if path is valid */
-  /* CLASS_PROPS is a type for  props.navigation.state.params.classMethods */
+  /* CLASS_METHODS is a type for  props.navigation.state.params.classMethods */
   let classMethods = getNestedObject(props, CLASS_METHODS);
-  /* classProps will contain {handleBackPress: ƒ, handleBackClick: ƒ} */
+  /* classMethods will contain {handleBackPress: ƒ, handleBackClick: ƒ} */
 
   return (
     <View
@@ -200,6 +200,7 @@ const styles = StyleSheet.create({
 ```
 
 **3. LazyLoading** : To implement LazyLoading on `TabNavigator` following steps should be followed
+
 * **withLazyLoading(Screen)** : implements lazy loading on `TabNavigator` screen
 
 |       Params        |   Type    | Description                     |
@@ -214,7 +215,8 @@ const styles = StyleSheet.create({
 |   _`props`_    |     Props      | Props obtained from `tabBarOnPress` on _Navigator_                    |
 
 **NOTE**:
- * `firstRoute` (the first screen on TabNavigator) or `initialRoute` should not have lazy loading. They should be rendered normally.
+
+* `firstRoute` (the first screen on TabNavigator) or `initialRoute` should not have lazy loading. They should be rendered normally.
 
 * If first screen has `LazyLoading`, nothing will be rendered.
 
@@ -248,7 +250,7 @@ const LazyTabScreen2 = withLazyLoading(TabScreen2);
 
 const MyTabs = TabNavigator(
   {
-    tab1: { screen: TabScreen1 }, /* No LazyLoad on 1st route */
+    tab1: { screen: TabScreen1 } /* No LazyLoad on 1st route */,
     tab2: { screen: LazyTabScreen2 }
   },
   {
