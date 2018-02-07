@@ -112,6 +112,7 @@ export function getNestedObject(obj, type, printErr) {
 export const withLazyLoading = ScreenComponent => {
   return class extends Component {
     state = { visited: false };
+    static navigationOptions = { ...ScreenComponent.navigationOptions };
     componentWillReceiveProps(nextProps) {
       let { visited } = this.state;
       if (!visited)
