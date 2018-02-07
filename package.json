@@ -1,11 +1,8 @@
 {
   "name": "react-navigation-utils",
-  "version": "0.0.12",
+  "version": "0.0.15",
   "dependencies": {
-    "prop-types": "^15.6.0",
-    "react": "16.0.0",
-    "react-native": "0.52.0",
-    "react-navigation": "^1.0.0-beta.27"
+    "prop-types": "^15.6.0"
   },
   "description": "Utility functions for react-navigation",
   "main": "index.js",
@@ -27,7 +24,11 @@
     "react-navigation-custom-header",
     "react-navigation-utility",
     "react-navigation-lazy",
-    "react-navigation-lazy-loading"
+    "react-navigation-lazy-loading",
+    "lazy-loading",
+    "navigation",
+    "header",
+    "utility"
   ],
   "author": "Ajith Pandian",
   "license": "MIT",
